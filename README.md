@@ -49,6 +49,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 ``` 
+In order to get rid of underline of zsh-syntax-highlighting, add this to ~/.zshrc
+```
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+```
 
 ## 3. __Copy ssh keys__
 
