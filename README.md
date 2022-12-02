@@ -36,6 +36,19 @@ Remove backgorund color of dircolor
 ```
 dircolors -p | sed 's/;42/;01/' > ~/.dircolors
 ```
+Add following lines to ~/.zshrc
+```
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+``` 
 
 ## 3. __Copy ssh keys__
 
@@ -63,4 +76,9 @@ sudo apt install python3-pip
 Install pipenv
 ```
 pip install pipenv
+```
+Install pyenv
+```
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
 ```
