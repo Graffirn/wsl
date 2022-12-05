@@ -72,7 +72,6 @@ rm known_hosts
 Place the following line to ~/.zshrc
 ```
 alias python=python3
-
 ```
 Install pip
 ```
@@ -86,4 +85,10 @@ Install pyenv
 ```
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 
+```
+Add pyenv to PATH
+```
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
 ```
