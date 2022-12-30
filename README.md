@@ -59,7 +59,7 @@ ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
 Copy Windows ssh key to wsl
 ```
-cp -r /mnt/c/Users/<username>/.ssh ~/.ssh
+cp -r /mnt/c/Users/<username>/.ssh/* ~/.ssh
 ```
 Fix permission & known_hosts
 ```
