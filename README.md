@@ -36,6 +36,7 @@ Remove backgorund color of dircolor
 ```
 dircolors -p | sed 's/;42/;01/' > ~/.dircolors
 ```
+
 Add following lines to ~/.zshrc
 ```
 if [ -x /usr/bin/dircolors ]; then
@@ -49,6 +50,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 ``` 
+
 In order to get rid of underline of zsh-syntax-highlighting, add this to ~/.zshrc
 ```
 ZSH_HIGHLIGHT_STYLES[path]=none
@@ -61,6 +63,7 @@ Copy Windows ssh key to wsl
 ```
 cp -r /mnt/c/Users/<username>/.ssh/* ~/.ssh
 ```
+
 Fix permission & known_hosts
 ```
 chmod 600 ~/.ssh/id_rsa
@@ -73,19 +76,23 @@ Place the following line to ~/.zshrc
 ```
 alias python=python3
 ```
+
 Install pip
 ```
 sudo apt install python3-pip
 ```
+
 Install pipenv
 ```
 pip install pipenv
 ```
+
 Install pyenv
 ```
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 
 ```
+
 Add pyenv to PATH
 ```
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
@@ -97,8 +104,6 @@ echo 'eval "$(pyenv init -)"' >> ~/.zshrc
 
 Install kubectl
 ```
-sudo apt-get install -y kubectl
-sudo apt-get install -y ca-certificates curl
 sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt-get update
