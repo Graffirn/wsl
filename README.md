@@ -2,9 +2,15 @@
 
 ## 1. __Update packages__
 
+Update package manager
 ```
 sudo apt-get upgrade -y && sudo apt-get update -y
 sudo apt-get install git
+```
+
+Install additional libs
+```
+sudo apt-get install build-essential libssl-dev libffi-dev python3-dev python3-pip libsasl2-dev libldap2-dev default-libmysqlclient-dev libsqlite3-dev liblzma-dev tk-dev libreadline-dev libbz2-dev libncurses-dev
 ```
 
 ## 2. __Install zsh and oh-my-zsh__
@@ -114,4 +120,21 @@ Install k9s
 ```
 curl -sS https://webinstall.dev/k9s | bash
 source ~/.config/envman/PATH.env
+```
+
+## 6. __Docker__
+
+Create volumn for mysql
+```
+sudo docker volume create mysql-data
+```
+
+Create a container run mysql
+```
+sudo docker run --name=mysql-docker -p 3306:3306 -v mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-password -e MYSQL_USER=huynkq -e MYSQL_PASSWORD=my-secret-password -d mysql/mysql-server:latest
+```
+
+Start a redis instance
+```
+sudo docker run --name redis-docker -p 6379:6379 -d redis
 ```
