@@ -131,7 +131,19 @@ sudo docker volume create mysql-data
 
 Create a container run mysql
 ```
-sudo docker run --name=mysql-docker -p 3306:3306 -v mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-password -e MYSQL_USER=huynkq -e MYSQL_PASSWORD=my-secret-password -d mysql/mysql-server:latest
+sudo docker run --name=mysql-docker -p 3306:3306 -v mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_USER=huynkq -e MYSQL_PASSWORD=123456 -d mysql/mysql-server:latest
+```
+
+By default, MySQL restricts connection other than the local machine for security reasons. To connect from the other machines, you have to change the connection restriction:
+```
+docker exec -it mysql-docker bash
+# Connect to mysql server
+mysql -u root -p
+
+# Allow access from all hosts
+UPDATE mysql.user SET host = ‘%’;
+GRANT ALL PRIVILEGES ON *.* TO 'huynkq'@'%';
+FLUSH PRIVILEGES;
 ```
 
 Start a redis instance
